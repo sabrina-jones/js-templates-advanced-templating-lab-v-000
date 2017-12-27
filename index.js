@@ -1,5 +1,9 @@
 function init() {
-  //put any page initialization/handlebars initialization here
+  Handlebars.registerPartial('recipeDetailsPartial', document.getElementById("recipe-details-partial").innerHTML);
+ Handlebars.registerPartial('recipeFormPartial', document.getElementById("recipe-form-partial").innerHTML);
+ document.getElementById("main").innerHTML += Handlebars.compile(document.getElementById("recipe-form-template").innerHTML)({'submitAction': 'createRecipe();return false;'});
+ Handlebars.registerHelper('displayIngredient', function(ingredient){
+   return new Handlebars.SafeString('<li name="displayedIngredients">' + ingredient.value + '</li>')
 }
 document.addEventListener("DOMContentLoaded", function(event) {
   init()
