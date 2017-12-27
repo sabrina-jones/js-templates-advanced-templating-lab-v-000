@@ -4,6 +4,7 @@ function init() {
  document.getElementById("main").innerHTML += Handlebars.compile(document.getElementById("recipe-form-template").innerHTML)({'submitAction': 'createRecipe();return false;'});
  Handlebars.registerHelper('displayIngredient', function(ingredient){
    return new Handlebars.SafeString('<li name="displayedIngredients">' + ingredient.value + '</li>')
+ })
 }
 document.addEventListener("DOMContentLoaded", function(event) {
   init()
